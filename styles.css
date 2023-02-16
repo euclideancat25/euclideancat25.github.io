@@ -1,107 +1,90 @@
+:root {
+    --blue:#132BC2;
+    --bluew:#36428E;
+    --lightblue:#0AA5F5;
+    --orange:#F67D27;
+    --dorange:#F25922;
+}
+
 * {
-    font-family: 'Quicksand', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
     margin:0;
-    padding: 0;
-    font-size: medium;
-    box-sizing: inherit;
+    padding:0;
+    width:100%;
+    height:100%;
+    font-family: 'Open Sans', sans-serif;
 }
 
-header {
-    background-image: linear-gradient(90deg, #2f4979 0%, #172f57 100%);
-    padding: 10px;
-    z-index: 3;
+#banner {
+    background-image: url(images/levelelogo.svg);
+    overflow: hidden;
+    background-size: cover;
+    background-position:0 80%;
+    color:white;
+    font-weight: bold;
 }
 
-h1 {
-    color: white;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 2rem;
-}
-
-h2.logo {
-    text-align: center;
-    position: relative;
-    top:100px;
-    color: rgb(255, 255, 255);
-    font-family: 'Oooh Baby', cursive;
-    font-size: 6rem;
-    text-shadow: 0px -1px 10px #334e81;
-}
-
-ul{
-    list-style: none;
-}
-
-.navbar {
+.nav-bar {
     display: flex;
     flex-direction: row;
-    background-color: #4b77c9;
+    flex-wrap: wrap;
     justify-content: space-between;
-    box-shadow: 0 0 3px 0px;
-    align-items: center;
+    padding: 10px 0 10px 0;
+    gap:1em;
+
 }
 
-.list-container {
+.menu,.social {
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap:1em;
 }
 
-.list-container a {
-    font-weight: bold;
-    display: block;
-    color:white;
-    font-size: 1.4rem;
-    padding:10px;
+.title {
+    font-size: 3em;
+    padding:40px 0px 20px 0px;
+}
+
+.wrapper {
+    max-width: 45em;
+    padding: 0 4em;
+    margin:0 auto;
+}
+
+.nav-bar a {
     cursor: pointer;
 }
 
-.social-logo{
-    margin: 10px;
+#first-section {
+    font-size:1.0em;
 }
 
-.list-container a:hover {
-    background-color: #334e81;
-  }
-
-.presentazione-logo {
-    height: 100vh;
-    background-image: url(images/levelelogo.svg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-}
-
-.info-container {
-    padding-top: 50px;
-    padding-left: 40px;
-    padding-right: 40px;
-}
-
-h3 {
-    text-align: center;
-    color: black;
-    font-size: 1.6rem;
-}
-
-.item {
-    display:flex;
-    flex-direction: column;
+.footer-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    gap:40px;
-    background-image: linear-gradient(95deg, #4b77c9 0%, #9369e5 100%);
-    box-shadow: 0 0 3px 0px;
-    padding: 25px;
-    margin: 10px auto;
-    border-radius: 10px;
-    width:66%;
+    flex-wrap: wrap;
 }
 
-.item.item:hover{
-    transition-duration: 100ms;
-    transform:scale(1.01);
+#footer-info{
+    background-color: var(--bluew);
+    color:white;
+    margin-top: 10em;
 }
 
+.footer {
+    padding:3em;
+}
 
+#contacts {
+    flex-basis: 30em;
+}
 
+.orangeback {
+    background-color: var(--orange);
+}
