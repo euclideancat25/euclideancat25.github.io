@@ -69,6 +69,7 @@ body {
 .nav-bar a {
     cursor: pointer;
     transition: transform .2s;
+    text-decoration: none;
 }
 .nav-bar a:hover{
     transform: scale(1.1);
