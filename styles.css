@@ -57,6 +57,19 @@ body {
 .title {
     font-size: 4em;
     padding:40px 0px 20px 0px;
+    width:fit-content;
+}
+
+@media screen and (max-width: 600px) {
+    .nav-bar,.menu,.social {
+        flex-direction: column;
+
+    }
+
+    .title {
+        margin:0 auto;
+        font-size: 3em;
+    }
 }
 
 .wrapper {
