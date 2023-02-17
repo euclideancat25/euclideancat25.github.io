@@ -60,18 +60,6 @@ body {
     width:fit-content;
 }
 
-@media screen and (max-width: 600px) {
-    .nav-bar,.menu,.social {
-        flex-direction: column;
-
-    }
-
-    .title {
-        margin:0 auto;
-        font-size: 3em;
-    }
-}
-
 .wrapper {
     max-width: 60em;
     padding: 0 2em;
@@ -131,4 +119,21 @@ body {
 .bold{
     font-weight: bold;
     color: red;
+}
+
+@media screen and (max-width: 600px) {
+    .nav-bar,.menu,.social {
+        flex-direction: column;
+        backdrop-filter: blur(10px);
+
+    }
+
+    .title {
+        margin:0 auto;
+        font-size: 3em;
+    }
+
+    #banner .wrapper {
+       padding: 0;
+    }
 }
