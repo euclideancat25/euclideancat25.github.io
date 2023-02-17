@@ -10,20 +10,26 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin:0;
     padding:0;
     width:100%;
     height:100%;
     font-family: 'Open Sans', sans-serif;
-    font-size:1.2em;
+    font-size:1.0em;
 }
 
 #banner {
+    width:100%;
     background-image: url(images/levelelogo.svg);
-    overflow: hidden;
+    background-size: 100%;
     background-size: cover;
-    background-position:0 80%;
+    background-position:bottom;
+    overflow: hidden;
     color:white;
     font-weight: bold;
     box-shadow: 0px -6px 20px black;
@@ -49,12 +55,12 @@ body {
 }
 
 .title {
-    font-size: 3em;
+    font-size: 4em;
     padding:40px 0px 20px 0px;
 }
 
 .wrapper {
-    max-width: 50em;
+    max-width: 60em;
     padding: 0 2em;
     margin:0 auto;
 }
@@ -79,6 +85,7 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    gap: 3em;
 }
 
 #footer-info{
@@ -90,10 +97,6 @@ body {
 
 .footer {
     padding:3em;
-}
-
-#contacts {
-    flex-basis: 30em;
 }
 
 .orangeback {
@@ -110,4 +113,9 @@ body {
 
 #mappa {
     flex-basis: 20em;
+}
+
+.bold{
+    font-weight: bold;
+    color: red;
 }
