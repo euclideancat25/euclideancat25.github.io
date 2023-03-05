@@ -1,10 +1,12 @@
 export class Circle {
 
-    constructor(center, rad, vel, m) {
+    constructor(center, rad, vel, m, start_force) {
         this.c_center = center;
         this.circle_rad = rad;
         this.velocity = vel;
         this.mass = m;
+        this.force = start_force;
+        this.maxspeed = 1.0;
 
     }
 
@@ -30,5 +32,13 @@ export class Circle {
 
     set radius(new_radius) {
         this.circle_rad = new_radius;
+    }
+
+    get app_force() {
+        return this.force;
+    }
+
+    set app_force(new_force){
+        this.force = new_force;
     }
 }

@@ -3,6 +3,7 @@ export class Vect  {
     constructor(x,y) {
         this.x_coord = x;
         this.y_coord = y;
+        this.max_vel = 10;
     }
 
     get x() {
