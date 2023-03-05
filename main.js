@@ -3,28 +3,30 @@ import { Vect } from "/modules/vector.js";
 import { Scene } from "/modules/scene.js";
 import { PhysicsWorld } from "/modules/physics.js";
 
+document.addEventListener("mousemove", mouseMoveHandler, false);
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-document.addEventListener("mousemove", mouseMoveHandler, false);
 
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-var mouse_point;
-var speed = 2.0;
-var length = 20;
+var mouse_point = new Vect(0,0);
+const time_step = 0.1;
+const max_force = 20;
 //Worm
+var speed = 10;
+var start_force = new Vect(0,0)
+var length = 100;
 var circles = [];
 var rad = 10;
-var point = new Vect(0,0);
+var mass = 1;
+var point = new Vect(200,200);
 var vel = new Vect(0,0);
 
 for(let i = 0; i < length; i++) {
-    circles.push(new Circle(point, rad, vel, 1.0));
+    circles.push(new Circle(point, rad, vel, mass, start_force));
 }
-
-console.log(circles[0]);
 
 //Scene
 var main_scene = new Scene(circles);
@@ -38,23 +40,28 @@ function constraint(point, anchor, distance) {
     return ((d1.normalize()).scalar(distance)).add(anchor);
 }
 
-function desired_vel(amount) {
-    let desired_vel = (mouse_point).sub(circles[0].center);
-    console.log(circles[0]);
-    return desired_vel.normalize().scalar(amount);
+function steer(amount) {
+    let des_vel = mouse_point.sub(circles[0].center);
+    des_vel = des_vel.normalize();
+    des_vel = des_vel.scalar(amount);
+    let app_force_steer = (des_vel.sub(circles[0].current_velocity)).scalar(1/mass);
+    if(app_force_steer.abs>max_force){
+        return (app_force_steer.normalize()).scalar(max_force);
+    }
+    return app_force_steer;
 }
 
 
 function draw() {
-    circles[0].current_velocity = desired_vel(speed);
-    PhysicsWorld.calculate(circles[0]);
+    circles[0].app_force = steer(speed);
+    main_scene.render(ctx);
     for(let i = 1; i < circles.length; i++) {
         if(Vect.distance(circles[i].center, circles[i-1].center) > 0){
             circles[i].center = constraint(circles[i].center,circles[i-1].center,rad);
         }
     }
-    main_scene.render(ctx);
+    PhysicsWorld.calculate(circles[0]);
 }
 
-setInterval(draw, 1);
+setInterval(draw, time_step);
 
